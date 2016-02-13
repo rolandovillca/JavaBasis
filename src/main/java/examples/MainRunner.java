@@ -1,4 +1,4 @@
-package com.estelisa.examples;
+package examples;
 
 public class MainRunner {
 	
