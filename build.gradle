@@ -8,7 +8,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 
 // It is basically the source language level.
-sourceCompatibility = 1.5
+sourceCompatibility = 1.6
 
 // I is is the level of the bytecode that is generated.
 //targetCompatibility = 1.5
@@ -16,7 +16,7 @@ sourceCompatibility = 1.5
 version = "1.0"
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': 'version'
+        attributes 'Main-Class': 'examples.MainRunner', 'Implementation-Title': 'Gradle Quickstart', 'Implementation-Version': 'version'
     }
 }
 
@@ -54,4 +54,15 @@ uploadArchives {
             dirs 'repos'
         }
     }
+}
+
+task myTask {
+    doLast {
+        println 'Hello, running my own task'
+    }
+}
+
+task myAnotherTask << {
+    String message = "another way to create my own task"
+    println "Hello, " + message.toUpperCase()
 }
