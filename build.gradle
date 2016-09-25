@@ -10,10 +10,11 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'eclipse'
-// apply plugin: 'application'
+apply plugin: 'application'
 
 // It is basically the source language level.
 sourceCompatibility = 1.7
+mainClassName = "examples.MainRunner"
 
 version = "1.0"
 
@@ -22,6 +23,17 @@ jar {
         attributes 'Main-Class': 'examples.MainRunner',
                     'Implementation-Title': 'Gradle Quickstart',
                     'Implementation-Version': version
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/java']
+        }
+        resources {
+            srcDirs = ['src/resources']
+        }
     }
 }
 
@@ -70,8 +82,18 @@ task myAnotherTask << {
     println "Hello, " + message.toUpperCase()
 }
 
-task run {
-  if (project.hasProperty('appArgs')) {
-    args Eval.me(appArgs)
-  }
+// task run {
+//   if (project.hasProperty('appArgs')) {
+//     args Eval.me(appArgs)
+//   }
+// }
+
+run {
+  args += 'first_arg'
+}
+
+task myRun(type: JavaExec) {
+  classpath sourceSets.main.runtimeClasspath
+  main = "com.bla.MainRunner"
+  args "arg1", "arg2"
 }
