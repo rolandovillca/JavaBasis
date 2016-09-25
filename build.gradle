@@ -10,11 +10,11 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'eclipse'
-apply plugin: 'application'
+// apply plugin: 'application'
 
 // It is basically the source language level.
 sourceCompatibility = 1.7
-mainClassName = "examples.MainRunner"
+// mainClassName = "examples.MainRunner"
 
 version = "1.0"
 
@@ -29,10 +29,10 @@ jar {
 sourceSets {
     main {
         java {
-            srcDirs = ['src/java']
+            srcDirs = ['src/main/java']
         }
         resources {
-            srcDirs = ['src/resources']
+            srcDirs = ['src/main/resources']
         }
     }
 }
@@ -88,12 +88,12 @@ task myAnotherTask << {
 //   }
 // }
 
-run {
-  args += 'first_arg'
-}
+// run {
+//   args += 'first_arg'
+// }
 
 task myRun(type: JavaExec) {
   classpath sourceSets.main.runtimeClasspath
-  main = "com.bla.MainRunner"
+  main = "examples.MainRunner"
   args "arg1", "arg2"
 }
