@@ -1,6 +1,6 @@
-package examples;
+package MainRunner;
 
-public class MainRunner {
+public class Main {
 
     // Start method:
     public static void main(String[] args) {
