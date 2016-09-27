@@ -20,7 +20,7 @@ version = "1.0"
 
 jar {
     manifest {
-        attributes 'Main-Class': 'examples.MainRunner',
+        attributes 'Main-Class': 'com.estelisa.mainrunner.Main',
                     'Implementation-Title': 'Gradle Quickstart',
                     'Implementation-Version': version
     }
@@ -94,6 +94,6 @@ task myAnotherTask << {
 
 task myRun(type: JavaExec) {
   classpath sourceSets.main.runtimeClasspath
-  main = "examples.MainRunner"
+  main = "com.estelisa.mainrunner.Main"
   args "arg1", "arg2"
 }
