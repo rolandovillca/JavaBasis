@@ -13,7 +13,7 @@ apply plugin: 'eclipse'
 // apply plugin: 'application'
 
 // It is basically the source language level.
-sourceCompatibility = 1.7
+sourceCompatibility = 1.8
 // mainClassName = "examples.MainRunner"
 
 version = "1.0"
